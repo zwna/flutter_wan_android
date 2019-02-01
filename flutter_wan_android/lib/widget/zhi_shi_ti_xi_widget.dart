@@ -81,7 +81,7 @@ class _ZhiShiTiXiWidgetState extends State<ZhiShiTiXiWidget> with AutomaticKeepA
                       runSpacing:5.0,
                       children:_knowledgeSystemPartBean.children.map((_knowledgeSystemPartDetailBean){
                         return GestureDetector(
-                          child:Text(_knowledgeSystemPartDetailBean.name,style:TextStyle(color:Colors.blue,fontSize:15.0,decoration:TextDecoration.underline)),
+                            child:Text(_knowledgeSystemPartDetailBean.name,style:TextStyle(color:Colors.blue,fontSize:15.0,fontWeight:FontWeight.bold,decoration:TextDecoration.underline)),
                           onTap:(){
                             Navigator.of(context).push(MaterialPageRoute(
                               builder:(BuildContext context) => KnowledgeSystemDetailWidget(_knowledgeSystemPartBean.name, _knowledgeSystemPartBean.children.indexOf(_knowledgeSystemPartDetailBean),_knowledgeSystemPartBean.children)
