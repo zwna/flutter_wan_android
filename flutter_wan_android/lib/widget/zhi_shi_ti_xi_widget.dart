@@ -76,19 +76,25 @@ class _ZhiShiTiXiWidgetState extends State<ZhiShiTiXiWidget> with AutomaticKeepA
                         Icon(Icons.chevron_right),
                       ],
                     ),
-                    Wrap(
-                      spacing:8.0,
-                      runSpacing:5.0,
-                      children:_knowledgeSystemPartBean.children.map((_knowledgeSystemPartDetailBean){
-                        return GestureDetector(
-                            child:Text(_knowledgeSystemPartDetailBean.name,style:TextStyle(color:Colors.blue,fontSize:15.0,fontWeight:FontWeight.bold,decoration:TextDecoration.underline)),
-                          onTap:(){
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder:(BuildContext context) => KnowledgeSystemDetailWidget(_knowledgeSystemPartBean.name, _knowledgeSystemPartBean.children.indexOf(_knowledgeSystemPartDetailBean),_knowledgeSystemPartBean.children)
-                            ));
-                          },
-                        );
-                      }).toList(),
+                    Container(
+                      margin:EdgeInsets.only(top:18.0),
+                      child:Wrap(
+                        spacing:8.0,
+                        runSpacing:15.0,
+                        children:_knowledgeSystemPartBean.children.map((_knowledgeSystemPartDetailBean){
+                          return GestureDetector(
+                            child:Baseline(
+                              baseline: 1.0,
+                              baselineType: TextBaseline.alphabetic,
+                              child:Text(_knowledgeSystemPartDetailBean.name,style:TextStyle(color:Colors.blue,fontSize:15.0,fontWeight:FontWeight.bold,decoration:TextDecoration.underline)),),
+                            onTap:(){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder:(BuildContext context) => KnowledgeSystemDetailWidget(_knowledgeSystemPartBean.name, _knowledgeSystemPartBean.children.indexOf(_knowledgeSystemPartDetailBean),_knowledgeSystemPartBean.children)
+                              ));
+                            },
+                          );
+                        }).toList(),
+                      ),
                     )
                   ],
                 ),
